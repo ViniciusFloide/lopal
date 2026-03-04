@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CALCULADORA 2</title>
+    <link rel="stylesheet" href="calcu.css"
+</head>
+<body>
+    <div>
+    <h1 id="calcu">CALCULADORA</h1>
+    <p id="resultado"></p>
+    <div class="calculadora">
+    <table>
+        <tr>
+            <td class="botao"><button onclick="limpar()">CE</button></td>
+            <td><button onclick="limpar()">C</button></td>
+            <td><button onclick="voltar()"><</button></td>
+            <td><button onclick="inserir ('-'); inserirop();">-</button></td>
+    </tr>
+<tr>
+            <td><button onclick="inserir ('7')">7</button></td>
+            <td><button onclick="inserir ('8')">8</button></td>
+            <td><button onclick="inserir ('9')">9</button></td>
+            <td><button onclick="inserir ('/')">/</button></td>
+
+</tr>
+<tr>
+            <td><button onclick="inserir ('4')">4</button></td>
+            <td><button onclick="inserir ('5')">5</button></td>
+            <td><button onclick="inserir ('6')">6</button></td>
+            <td><button onclick="inserir ('*')">x</button></td>
+</tr>
+<tr>
+            <td><button onclick="inserir ('1')">1</button></td>
+            <td><button onclick="inserir ('2')">2</button></td>
+            <td><button onclick="inserir ('3')">3</button></td>
+             <td><button onclick="inserir ('+'); inserirop();">+</button></td>
+
+</tr>
+            <td class="zero"><button onclick="inserir ('0')">0</button></td>
+            <td><button onclick="calcular()">= </button><td>
+            <td><button onclick="inserir('.')">.</button><td>
+</tr>
+
+</table>
+</div> 
+</body>
+<script>
+    
+    function inserir (num)
+        {
+        var numero = document.getElementById('resultado').innerHTML;
+        var numero2 = document.getElementById('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = numero + num;
+            
+        }
+    
+    function limpar()
+    {
+        document.getElementById('resultado').innerHTML = "";
+    }
+    function voltar()
+    {
+        var resultado = document.getElementById ('resultado').innerHTML;
+        document.getElementById('resultado').innerHTML = resultado.substring(0, resultado.length -1);
+    }
+
+    function calcular ()
+{
+    var resultado = document.getElementById('resultado').innerHTML;
+    if(resultado)
+{
+    document.getElementById('resultado').innerHTML = eval(resultado);
+}
+else
+{
+    document.getElementById('resultado').innerHTML = "nada..."
+}
+function inserirop (oper)
+{
+    document.getElementById('resultado').innerHTML;
+    document.getElementById('resultado').innerHTML;
+}
+
+
+}
+    
+
+</script>
+
+</html>

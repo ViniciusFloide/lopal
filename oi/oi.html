@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fabio Gameplais</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align:center;
+    background: linear-gradient(270deg,#ff4e50,#1e90ff,#00ff99);
+    background-size:600% 600%;
+    animation:bg 10s ease infinite;
+    color:white;
+    overflow-x:hidden;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+h1{
+    margin-top:50px;
+    font-size:3em;
+}
+
+.botao{
+    padding:15px 30px;
+    margin:15px;
+    border:none;
+    border-radius:30px;
+    font-size:1em;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.botao:hover{
+    transform:scale(1.1);
+}
+
+#jogo{
+    margin-top:80px;
+    padding:30px;
+    background:rgba(0,0,0,0.4);
+    border-radius:20px;
+}
+
+#areaJogo{
+    position:relative;
+    height:400px;
+    background:#111;
+    border-radius:20px;
+    overflow:hidden;
+    margin-top:20px;
+}
+
+#vitor{
+    position:absolute;
+    width:80px;
+    height:80px;
+    background:red;
+    border-radius:50%;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    text-align:center;
+}
+</style>
+</head>
+<body>
+
+<h1>🎮 Fabio Gameplais</h1>
+
+<button class="botao" onclick="mudarCor()">🎨 Mudar Cor</button>
+<button class="botao" onclick="mensagem()">💬 Mensagem Secreta</button>
+<button class="botao" onclick="efeito()">✨ Efeito Especial</button>
+
+<h2 id="resposta"></h2>
+
+<div id="jogo">
+    <h2>🕹️ Jogo: Mate o Vitor Bailone</h2>
+    <p>Clique no círculo vermelho o mais rápido possível!</p>
+    <h3>Pontos: <span id="pontos">0</span></h3>
+    <div id="areaJogo">
+        <div id="vitor">Vitor</div>
+    </div>
+</div>
+
+<audio id="som">
+    <source src="https://www.soundjay.com/buttons/sounds/button-16.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+let pontos = 0;
+let vitor = document.getElementById("vitor");
+let area = document.getElementById("areaJogo");
+
+// BOTÕES INTERATIVOS
+function mudarCor(){
+    document.body.style.background =
+        "linear-gradient(270deg,#"+Math.floor(Math.random()*16777215).toString(16)+
+        ",#"+Math.floor(Math.random()*16777215).toString(16)+")";
+}
+
+function mensagem(){
+    document.getElementById("resposta").innerText =
+        "🔥 Você ativou o modo lendário do Fabio!";
+}
+
+function efeito(){
+    document.getElementById("som").play();
+    document.body.style.transform="rotate(2deg)";
+    setTimeout(()=>{document.body.style.transform="rotate(0deg)";},200);
+}
+
+// JOGO
+function moverVitor(){
+    let x = Math.random()*(area.clientWidth-80);
+    let y = Math.random()*(area.clientHeight-80);
+    vitor.style.left = x+"px";
+    vitor.style.top = y+"px";
+}
+
+vitor.addEventListener("click", function(){
+    pontos++;
+    document.getElementById("pontos").innerText = pontos;
+    moverVitor();
+});
+
+moverVitor();
+</script>
+
+</body>
+</html>
