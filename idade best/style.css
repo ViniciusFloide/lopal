@@ -1,0 +1,80 @@
+body{
+font-family: Arial;
+background: linear-gradient(135deg,#1e3c72,#2a5298);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+margin:0;
+}
+
+.container{
+background:white;
+padding:40px;
+border-radius:15px;
+text-align:center;
+width:350px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+animation: aparecer 1s;
+}
+
+h1{
+margin-bottom:10px;
+}
+
+input{
+width:80%;
+padding:10px;
+margin:10px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+}
+
+button{
+background:#2a5298;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:#1e3c72;
+transform:scale(1.05);
+}
+
+#resultado{
+margin-top:20px;
+font-weight:bold;
+}
+
+.barra{
+width:100%;
+height:10px;
+background:#ddd;
+border-radius:10px;
+margin-top:20px;
+overflow:hidden;
+}
+
+#progresso{
+height:100%;
+width:0%;
+background:limegreen;
+transition:1s;
+}
+
+@keyframes aparecer{
+from{
+opacity:0;
+transform:translateY(-20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
