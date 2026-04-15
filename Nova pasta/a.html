@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LISTA DE COMIDAS</title>
+  
+</head>
+<body> <div>
+ 
+    <h1>LISTA PARA COMPRAS:</h1>
+</div>
+<div>
+    <input type="text" id="inputcomida" placeholder="digite sua compra aqui..." ></input>
+ 
+</div>
+<div class="msg">
+    <p id="mensagemsucesso"></p>
+    <p id="comidas"></p>
+    <p id="msgerro"></p>
+    <p id="msgremove"></p>
+    <button onclick="mostrarmsg()">ADICIONE SUA COMPRA</button>
+</div>
+<div>
+    <ul class="topic" id="listagem"></ul>
+
+</div>
+<div>
+   
+</div>
+   
+</body>
+<script>
+    function mostrarmsg(){
+       var inputcomida = document.getElementById("inputcomida");
+       var value = inputcomida.value
+     
+ 
+    var msgsucesso = document.getElementById("mensagemsucesso");
+    var msgerro = document.getElementById("msgerro");
+    var msgremove = document.getElementById("msgremove")
+ 
+    msgerro.textContent = ""
+    msgsucesso.textContent = ""
+ 
+    if(value === ""){
+        msgerro.innerHTML = "NAO HÁ NADA PARA ADICIONAR!"  
+       
+    }
+    else {
+        msgsucesso.innerHTML = "ADICIONADA COM SUCESSO!"
+       
+    }
+     inputcomida.value = ""
+          inputcomida.focus()
+     
+ 
+       
+       
+       
+       
+   
+         
+        var listagem = document.getElementById("listagem")
+       var list =  document.createElement("li")
+        listagem.appendChild(list)
+        list.textContent = value
+ 
+        var buttonremove = document.createElement("button")
+        list.appendChild(buttonremove)
+        buttonremove.textContent = "X"
+       
+ 
+        buttonremove.onclick = function removerlist(){
+   
+                buttonremove.textContent = list.remove()
+                buttonremove.textContent = msgerro.textContent = "item removido"
+ 
+       
+ 
+ 
+ 
+               
+            }
+ 
+       
+ 
+   
+   
+    }
